@@ -1,16 +1,397 @@
-*,
-*::before,
-*::after {
+* {
+  margin: 0;
   box-sizing: border-box;
-}
-body {
-    margin: 0;
-}
-img {
-    display: block;
-    max-width: 100%;
+  padding: 0;
 }
 
-/*  pas de befor/after dans les images, la balise est auto fermante du coup pas possible ! */
-/*  vh pour rendre tout en longueur par exemple tout en rouge exemple : height : 100vh et 100vw pour la largeur  */
-/* befor / after d'office mettre content meme si il reste vide  */
+body {
+  font-family: "Oswald", sans-serif;
+  background-image: url(images/bg_pattern.png);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul{
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* NAVBAR MOBILE FIRST - fixée en haut, logo centré, burger visible */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+/* Flexbox pour aligner burger / logo / icones sur une ligne */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+/* cache la checkbox du burger HACK */
+.burger-toggle {
+  display: none;
+}
+/* burger mobile visible en mobile */
+.burger-label {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 10;
+}
+/* logo centré en mobile first */
+.nav-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* menu principal caché en mobile */
+.nav-menu {
+  display: 	none;
+}
+/* icones de droite */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+/* menu mobile déroulant - caché par défault */
+.nav-menu-mobile {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  padding: 1rem 2rem;
+  border-top: 1px solid #eee;
+  position: absolute;
+  top : 100%;
+  left: 0;
+}
+.nav-menu-mobile li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* checkbox hack : quand le burger est coché, afficher le menu mobile */
+.burger-toggle:checked ~ .nav-menu-mobile {
+  display: flex;
+}
+
+/* NAVIGATION - 1024px */
+/* Non fixée, centrée, menu complet visible
+Logo qui change de couleur 
+espacement 20px entre items, 100px entre Logo et premier item */
+@media (min-width: 1024px) {
+  
+  /* navbar plus fixée sur la homepage */
+  .navbar {
+    position: static;
+    border-bottom: 1px solid #eee ;
+  }
+  /* burger caché */
+  .burger-label {
+    display: none;
+  }
+  /* menu mobile caché même si checkbox cachée */
+  .burger-toggle:checked ~ .nav-menu-mobile {
+    display: none;
+  }
+  
+  /* / Conteneur nav centré horizontalement / */
+  .nav-container {
+    max-width: fit-content;
+    margin: 0 auto;
+    gap: 20px;
+    justify-content: center;
+    position: static;
+  }
+  
+  /* / Logo repositionné normalement, change de couleur / */
+  .nav-logo {
+    position: static;
+    transform: none;
+    color: #c8a96e; 
+    margin-right: 100px;
+    /* / 100px entre logo et premier item / */
+  }
+  
+  /* / Menu desktop visible */ 
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .nav-menu li a {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #000;
+  }
+  
+  .nav-menu li a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* MAIN — décalage pour la nav fixée en mobile */
+main {
+  margin-top: 70px;
+}
+
+@media (min-width: 1024px) {
+  main {
+    margin-top: 0;
+  }
+}
+
+/* SHOP SECTION — CARDS
+CSS Grid obligatoire
+11 cards dans un seul parent
+Mobile : 8 premières en 2 col, 3 dernières empilées
+770px+ : 8 premières en 4 col, 3 dernières en 3 col
+Titres centrés sur l'image (horizontalement + verticalement) */
+.shop {
+  padding: 2rem 0;
+}
+
+.shop h2 {
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+/* Grille unique contenant les 11 cards */
+.shop-grid {
+  display: grid;
+  /* Mobile : 2 colonnes pour les 8 premières */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+/* Chaque card */
+.card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+/* Image dans la card côté HTML */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Titre centré sur l'image */
+.card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  z-index: 2;
+  /* Ombre pour lisibilité */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+/* Les 3 dernières cards (9, 10, 11) empilées en mobile */
+/* On les identifie avec nth-child */
+.card:nth-child(9),
+.card:nth-child(10),
+.card:nth-child(11) {
+  grid-column: span 2; /* prend toute la largeur = empilées */
+}
+
+/* 770px+ : 8 premières en 4 colonnes, 3 dernières côte à côte */
+@media (min-width: 770px) {
+  .shop-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Les 3 dernières reprennent 1 colonne sur 4 = côte à côte */
+  .card:nth-child(9),
+  .card:nth-child(10),
+  .card:nth-child(11) {
+    grid-column: span 1;
+  }
+}
+/* ============================================
+LOOKBOOK SECTION
+Prend toute la hauteur d'écran (100vh)
+Image en HTML + filtre noir par dessus
+Contenu textuel centré (flex)
+Bouton avec hover : fond blanc transparent + s'élargit
+============================================ */
+.lookbook {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Image de fond placée en HTML */
+.lookbook-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Filtre noir semi-transparent pour lisibilité */
+.lookbook-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Contenu textuel centré horizontalement et verticalement */
+.lookbook-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
+
+.lookbook-content h2 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.lookbook-content p {
+  font-family: 'Baskervville', serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+/* Bouton lookbook */
+/* Hover : fond blanc transparent + s'élargit avec transition */
+.lookbook-btn {
+  display: inline-block;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.lookbook-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 3rem; /* s'élargit */
+}
+/* ---------------FOOTER------------------------
+Typo Baskervville
+Padding latéral 2rem
+Grid avec gap 2rem
+Mobile : 4 colonnes empilées
+Desktop : jusqu'à 4 côte à côte (min 250px)
+Max-width 1300px centré en écran large*/
+.footer {
+  background-color: #f5f5f5;
+  padding: 3rem 2rem;
+  font-family: 'Baskervville', serif;
+  border-top: 1px solid #ddd;
+}
+
+/* Grid footer */
+.footer-grid {
+  display: grid;
+  /* Mobile : 1 colonne = empilées */
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Titres des colonnes footer */
+.footer-col h3 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-col ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Icônes réseaux sociaux */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.3rem;
+}
+/* Hover coloré sur chaque réseau social */
+/* Sélection par nth-child car pas de classe sur chaque réseau */
+.social-icons a:nth-child(1):hover { color: #e1306c; } /* Instagram */
+.social-icons a:nth-child(2):hover { color: #1877f2; } /* Facebook */
+.social-icons a:nth-child(3):hover { color: #e60023; } /* Pinterest */
+.social-icons a:nth-child(4):hover { color: #000;    } /* TikTok */
+
+/* 770px : 2 colonnes côte à côte si place (min 250px) */
+@media (min-width: 770px) {
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* 1024px : max 4 colonnes côte à côte */
+@media (min-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(4, minmax(250px, 1fr));
+    }
+}
