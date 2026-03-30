@@ -1,0 +1,466 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   NAVIGATION
+   Mobile : fixée en haut, burger visible
+   Desktop 1024px+ : statique, menu horizontal
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-image: url('images/bg_pattern.png');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.burger-toggle {
+  display: none;
+}
+
+.burger-label {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nav-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Baskervville', serif;
+  font-size: 1.8rem;
+  color: #000;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+
+.nav-icons a:hover {
+  opacity: 0.6;
+}
+
+.nav-menu-mobile {
+  display: none;
+  flex-direction: column;
+  background-image: url('images/bg_pattern.png');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  border-top: 1px solid #eee;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.nav-menu-mobile li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #000;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.burger-toggle:checked ~ .nav-menu-mobile {
+  display: flex;
+}
+
+/* ============================================
+   MAIN
+   ✏️ CORRECTION PROF : margin-top adapté à la 
+   hauteur réelle de la navbar (~61px)
+   ============================================ */
+main {
+  margin-top: 61px;
+}
+
+/* ============================================
+   SHOP SECTION — GRILLE DE CARTES
+   ============================================ */
+
+.shop {
+  padding: 0;
+}
+
+/* Grille 2 colonnes sur mobile */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+/* ✏️ CORRECTION : hauteur fixe indispensable pour que 
+   object-fit: cover fonctionne correctement.
+   Sans hauteur définie, l'image s'affiche en taille naturelle */
+.card {
+  position: relative;
+  overflow: hidden;
+  height: 500px; /* ← clé du problème */
+}
+
+/* Le wrapper occupe toute la carte */
+.card-img-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* L'image remplit le wrapper sans déformer */
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Titre centré par-dessus l'image */
+.card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  z-index: 2;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  white-space: nowrap; /* ✏️ CORRECTION : évite que le texte se coupe */
+}
+
+/* Les 3 dernières cartes prennent toute la largeur sur mobile */
+.card:nth-child(9),
+.card:nth-child(10),
+.card:nth-child(11) {
+  grid-column: span 2;
+}
+
+/* ============================================
+   LOOKBOOK SECTION
+   ============================================ */
+
+.lookbook {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.lookbook-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.lookbook-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.lookbook-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
+
+.lookbook-title {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.lookbook-subtitle {
+  font-family: 'Baskervville', serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.lookbook-btn {
+  display: inline-block;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.lookbook-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 3rem;
+}
+
+/* ============================================
+   NEWSLETTER
+   ============================================ */
+.newsletter {
+  background: #f3e9dd;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.newsletter-title {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.newsletter-form button {
+  padding: 1rem 2rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background-image: url('images/bg_pattern.png');
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 2rem;
+  font-family: 'Baskervville', serif;
+  border-top: 1px solid #ddd;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.footer-col h3 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-col ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.3rem;
+}
+
+.social-icons a:nth-child(1):hover { color: #e1306c; }
+.social-icons a:nth-child(2):hover { color: #1877f2; }
+.social-icons a:nth-child(3):hover { color: #e60023; }
+.social-icons a:nth-child(4):hover { color: #000;    }
+
+/* ============================================
+   MEDIA QUERIES — TOUT EN BAS
+   ============================================ */
+
+/* ------------------------------------------
+   TABLETTE — 770px
+   3 colonnes égales, toutes les cartes span 1
+   ------------------------------------------ */
+@media (min-width: 770px) {
+
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Toutes les cartes reviennent à 1 colonne */
+  .card,
+  .card:nth-child(9),
+  .card:nth-child(10),
+  .card:nth-child(11) {
+    grid-column: span 1;
+  }
+
+  /* Hauteur réduite sur tablette */
+  .card {
+    height: 400px;
+  }
+}
+
+/* ------------------------------------------
+   DESKTOP — 1024px
+   ✏️ CORRECTION PROF : repeat(12, 1fr) + span
+   "plutôt du 12, 1fr avec du span 3 ou 4"
+   ------------------------------------------ */
+@media (min-width: 1024px) {
+
+  /* Navbar statique */
+  .navbar {
+    position: static;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Cache le burger */
+  .burger-label {
+    display: none;
+  }
+
+  /* Force la fermeture du menu mobile même si coché */
+  .burger-toggle:checked ~ .nav-menu-mobile {
+    display: none;
+  }
+
+  /* Retire le margin-top du main */
+  main {
+    margin-top: 0;
+  }
+
+  .nav-container {
+    max-width: fit-content;
+    margin: 0 auto;
+    gap: 20px;
+    justify-content: center;
+    position: static;
+  }
+
+  .nav-logo {
+    position: static;
+    transform: none;
+    color: #c8a96e;
+    margin-right: 100px;
+  }
+
+  /* Menu horizontal visible */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-menu li a {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #000;
+  }
+
+  .nav-menu li a:hover {
+    text-decoration: underline;
+  }
+
+  /* ✏️ CORRECTION : grille 12 colonnes */
+  .cards-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  /* Cards 1-8 : span 3 = 4 par ligne (3x4=12) */
+  .card {
+    grid-column: span 3;
+    height: 500px;
+  }
+
+  /* Cards 9-11 : span 4 = 3 par ligne (4x3=12) */
+  .card:nth-child(9),
+  .card:nth-child(10),
+  .card:nth-child(11) {
+    grid-column: span 4;
+  }
+
+  /* Footer en 4 colonnes */
+  .footer-grid {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
+}

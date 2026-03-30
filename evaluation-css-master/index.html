@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sézane</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Baskervville&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3379e155de.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <!-- Mobile : fixée, logo centré, burger affiché -->
+    <!-- 1024px+ : non fixée, centrée, menu complet visible -->
+    <header class="navbar">
+        <nav class="nav-container">
+
+            <!-- BURGER : checkbox hack sans JS -->
+            <input type="checkbox" id="burger-toggle" class="burger-toggle">
+            <label for="burger-toggle" class="burger-label">
+                <!-- ✏️ CORRECTION PROF : classes Font Awesome directement sur le <a> ou <span> -->
+                <!-- pas besoin de balise <i> intermédiaire -->
+                <span class="fa-solid fa-bars"></span>
+            </label>
+
+            <!-- LOGO : texte simple -->
+            <!-- ✏️ CORRECTION PROF : SVG inutile ici, simple texte suffit -->
+            <!-- "ce svg du futur qui n'en est pas un" 😂 -->
+            <a href="index.html" class="nav-logo">Sézane</a>
+
+            <!-- Menu principal : caché sous 1024px, visible au dessus -->
+            <ul class="nav-menu">
+                <li><a href="#">Nouveautés</a></li>
+                <li><a href="#">Vêtements</a></li>
+                <li><a href="#">Accessoires</a></li>
+                <li><a href="#">Maison</a></li>
+                <li><a href="top30.html">Top 30</a></li>
+            </ul>
+
+            <!-- Icônes panier / compte -->
+            <!-- ✏️ CORRECTION PROF : classes FA directement sur le <a>, pas besoin de <i> -->
+            <div class="nav-icons">
+                <a href="#" class="fa-regular fa-heart"></a>
+                <a href="#" class="fa-regular fa-user"></a>
+                <a href="#" class="fa-solid fa-bag-shopping"></a>
+            </div>
+
+            <!-- Menu mobile qui s'ouvre avec la checkbox -->
+            <ul class="nav-menu-mobile">
+                <li><a href="#">Nouveautés</a></li>
+                <li><a href="#">Vêtements</a></li>
+                <li><a href="#">Accessoires</a></li>
+                <li><a href="#">Maison</a></li>
+                <li><a href="top30.html">Top 30</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- ✏️ CORRECTION PROF : margin-top adapté à la hauteur réelle de la navbar -->
+    <!-- "avec un margin top adapté, elles retrouvent toute leur vigueur" -->
+    <main>
+
+        <!-- SECTION SHOP -->
+        <!-- 11 CARDS DANS UN SEUL PARENT .cards-grid -->
+        <!-- Mobile : 2 colonnes | 770px : 3 col | 1024px : 12 col avec spans -->
+        <section class="shop">
+            <div class="cards-grid">
+
+                <!-- Cards 1 à 8 -->
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/aeqh3ctd6mxuxxolbtuq.jpg" alt="Robes">
+                        <h2 class="card-title">Robes</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/bqwqvgd5roolon4hmvaq.jpg" alt="Robes">
+                        <h2 class="card-title">Robes</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/dt6n9ouvfkjlp7xwoype.jpg" alt="Tops & T-shirts">
+                        <h2 class="card-title">Tops & T-shirts</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/giblnt5ksc3hehpwzx5v.jpg" alt="Tops & T-shirts">
+                        <h2 class="card-title">Tops & T-shirts</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/i34hmkeywypa0rmmknpg.jpg" alt="Tops & T-shirts">
+                        <h2 class="card-title">Tops & T-shirts</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/kojqq86ae8kjlobpfhgo.jpg" alt="Tops & T-shirts">
+                        <h2 class="card-title">Tops & T-shirts</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/m6vosttvqxmea9nia0zx.jpg" alt="Tops & T-shirts">
+                        <h2 class="card-title">Tops & T-shirts</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/qh02fjvvvvehprrgn7pq.jpg" alt="Tops & T-shirts">
+                        <h2 class="card-title">Tops & T-shirts</h2>
+                    </div>
+                </article>
+
+                <!-- Cards 9, 10, 11 : pleine largeur mobile / 3 côte à côte desktop -->
+                <!-- Toujours dans le même parent cards-grid -->
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/sb7pyfh6soefnslpzsxy.jpg" alt="Sacs">
+                        <h2 class="card-title">Sacs</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/whsgjd5juevg7sv16zfc.jpg" alt="Chaussures">
+                        <h2 class="card-title">Chaussures</h2>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/xws21dqvi3wbrhqzvmzv.jpg" alt="Accessoires">
+                        <h2 class="card-title">Accessoires</h2>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECTION LOOKBOOK -->
+        <!-- 100vh, image en HTML positionnée en absolu, overlay sombre, contenu centré -->
+        <!-- ✏️ CORRECTION PROF : bien avoir un conteneur .lookbook qui wrap -->
+        <!-- image + overlay + content → sans ça c'est "HORREUR" 😂 -->
+        <section class="lookbook">
+            <img src="images/background_dresses.avif" alt="Collection Printemps" class="lookbook-bg">
+            <div class="lookbook-overlay"></div>
+            <div class="lookbook-content">
+                <p class="lookbook-subtitle">Nouvelle collection</p>
+                <h2 class="lookbook-title">Collection Printemps</h2>
+                <!-- Bouton : hover = fond blanc transparent + s'élargit via transition -->
+                <a href="#" class="lookbook-btn">Découvrir</a>
+            </div>
+        </section>
+
+        <!-- FORMULAIRE NEWSLETTER -->
+        <!-- ✏️ CORRECTION PROF : le formulaire avait disparu ! -->
+        <!-- "Le formulaire ? C'était quoi le formulaire ? :/" -->
+        <section class="newsletter">
+            <h2 class="newsletter-title">Recevez nos invitations</h2>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Votre adresse e-mail">
+                <button type="submit">OK</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <!-- Mobile : 4 blocs empilés | Desktop : 4 colonnes, max 1300px, centré -->
+    <footer class="footer">
+        <div class="footer-grid">
+
+            <div class="footer-col">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="#">Notre histoire</a></li>
+                    <li><a href="#">Les Ateliers</a></li>
+                    <li><a href="#">Engagements</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Aide</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Livraison</a></li>
+                    <li><a href="#">Retours</a></li>
+                </ul>
+            </div>
+
+            <!-- Réseaux sociaux : hover coloré via nth-child, PAS de classe par icône -->
+            <div class="footer-col footer-social">
+                <h3>Suivez-nous</h3>
+                <!-- ✏️ CORRECTION PROF : classes FA directement sur le <a> -->
+                <div class="social-icons">
+                    <a href="#" class="fa-brands fa-instagram"></a>
+                    <a href="#" class="fa-brands fa-facebook"></a>
+                    <a href="#" class="fa-brands fa-pinterest"></a>
+                    <a href="#" class="fa-brands fa-tiktok"></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">Nous contacter</a></li>
+                    <li><a href="#">Presse</a></li>
+                    <li><a href="#">Recrutement</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sézane - Top 30</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Baskervville&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3379e155de.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="top30.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <nav class="nav-container">
+
+            <input type="checkbox" id="burger-toggle" class="burger-toggle">
+            <label for="burger-toggle" class="burger-label">
+                <!-- ✏️ CORRECTION PROF : classes FA directement sur le span -->
+                <span class="fa-solid fa-bars"></span>
+            </label>
+
+            <a href="index.html" class="nav-logo">Sézane</a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Nouveautés</a></li>
+                <li><a href="#">Vêtements</a></li>
+                <li><a href="#">Accessoires</a></li>
+                <li><a href="#">Maison</a></li>
+                <li><a href="top30.html">Top 30</a></li>
+            </ul>
+
+            <!-- ✏️ CORRECTION PROF : classes FA directement sur le <a> -->
+            <div class="nav-icons">
+                <a href="#" class="fa-regular fa-heart"></a>
+                <a href="#" class="fa-regular fa-user"></a>
+                <a href="#" class="fa-solid fa-bag-shopping"></a>
+            </div>
+
+            <ul class="nav-menu-mobile">
+                <li><a href="index.html">Nouveautés</a></li>
+                <li><a href="#">Vêtements</a></li>
+                <li><a href="#">Accessoires</a></li>
+                <li><a href="#">Maison</a></li>
+                <li><a href="top30.html">Top 30</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main class="top30-main">
+
+        <!-- TITRE DE LA PAGE -->
+        <div class="top30-header">
+            <h1 class="top30-title">French heroes</h1>
+        </div>
+
+        <!-- GRILLE : 2 grandes + 4 petites -->
+        <!-- Mobile : 2col | Tablette : 4col -->
+        <!-- ✏️ CORRECTION PROF : sans aspect-ratio, la grille s'articule -->
+        <!-- autour des images naturellement → plus joli ! -->
+        <section class="shop-top30">
+            <div class="cards-grid-top30">
+
+                <article class="card-top30 card-top30-large">
+                    <img src="images/shop1.jpg" alt="Basket bags">
+                    <p class="card-top30-label">Basket bags — 220€</p>
+                </article>
+
+                <article class="card-top30 card-top30-large">
+                    <img src="images/shop2.jpg" alt="Basket bags">
+                    <p class="card-top30-label">Basket bags — 220€</p>
+                </article>
+
+                <article class="card-top30 card-top30-small">
+                    <img src="images/shop3.jpg" alt="Basket bags">
+                    <p class="card-top30-label">Basket bags — 220€</p>
+                </article>
+
+                <article class="card-top30 card-top30-small">
+                    <img src="images/shop4.jpg" alt="Basket bags">
+                    <p class="card-top30-label">Basket bags — 220€</p>
+                </article>
+
+                <article class="card-top30 card-top30-small">
+                    <img src="images/shop5.jpg" alt="Basket bags">
+                    <p class="card-top30-label">Basket bags — 220€</p>
+                </article>
+
+                <article class="card-top30 card-top30-small">
+                    <img src="images/shop6.jpg" alt="Basket bags">
+                    <p class="card-top30-label">Basket bags — 220€</p>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- LOOKBOOK — réutilise les classes de style.css -->
+    <section class="lookbook">
+        <img src="images/background_dresses.avif" alt="Collection Printemps" class="lookbook-bg">
+        <div class="lookbook-overlay"></div>
+        <div class="lookbook-content">
+            <p class="lookbook-subtitle">Nouvelle collection</p>
+            <h2 class="lookbook-title">Collection Printemps</h2>
+            <a href="#" class="lookbook-btn">Découvrir</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+
+            <div class="footer-col">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="#">Notre histoire</a></li>
+                    <li><a href="#">Les Ateliers</a></li>
+                    <li><a href="#">Engagements</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Aide</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Livraison</a></li>
+                    <li><a href="#">Retours</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-social">
+                <h3>Suivez-nous</h3>
+                <!-- ✏️ CORRECTION PROF : classes FA sur le <a> directement -->
+                <div class="social-icons">
+                    <a href="#" class="fa-brands fa-instagram"></a>
+                    <a href="#" class="fa-brands fa-facebook"></a>
+                    <a href="#" class="fa-brands fa-pinterest"></a>
+                    <a href="#" class="fa-brands fa-tiktok"></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">Nous contacter</a></li>
+                    <li><a href="#">Presse</a></li>
+                    <li><a href="#">Recrutement</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
