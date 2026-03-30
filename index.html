@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sézanne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Baskervville&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3379e155de.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body >
+    <!-- Navigation -->
+    <!-- Mobile : fixée, logo centré, burger affiché -->
+    <!-- 1024px+ : non fixée, centrée, menu complet visible -->
+    <header class="navbar">
+        <nav class="nav-container">
+            <!-- BURGER visible uniquement sous 1024px -->
+            <!-- technnique sans JS, le burger est decoratif / checkboc hack -->
+            <input type="checkbox" id="burger-toggle" class="burger-toggle">
+            <label for="burger-toggle" class="burger-label">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            
+            <!-- LOGO SVG cliquable vers homepage -->
+            <a href="index.html" class="nav-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="120" height="40">
+                    <text x="10" y="38" font-family="Baskervville, serif" font-size="36"  fill="currentColor">Sézane</text>
+                </svg>
+            </a>
+            <!-- Menu principal : caché sous 1024px, visible au +++ -->
+            <ul class="nav-menu">
+                <li><a href="#">Nouveautés</a></li>
+                <li><a href="#">Vêtements</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Maison</a></li>
+                <li><a href="top30.html">Top 30</a></li>
+            </ul>
+            <!-- Icones panier / compte  supplément non demandée -->
+            <div class="nav-icons">
+                <a href="#"> <i class="fa-regular fa-heart"></i></a>
+                <a href="#"> <i class="fa-regular fa-user"></i></a>
+                <a href="#"> <i class="fa-solid fa-bag-shopping"></i></a>
+            </div>
+            <!-- Menu mobile qui s'ouvre avec la checkbox -->
+            <ul class="nav-menu-mobile">
+                <li><a href="#"></a>Nouveautés</li>
+                <li><a href="#"></a>Vêtements</li>
+                <li><a href="#"></a>Accespoires</li>
+                <li><a href="#"></a>Maison</li>
+                <li><a href="top30.html">TOP 30</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- SECTION SHOP -->
+        <!-- 11 CARDS DANS UN SEUL PARENTS .cards-grid -->
+        <!--  Mobile: 2 colonnes ( cards 1-8), 1 colonne (cards 9-11) -->
+        <!-- 770px + : 4 colonnes ( cards 1-8), 3 colonnes ( cards 9-11) -->
+        <section class="shop">
+            <div class="cards-grid">
+                <!-- Crrds 1 à 8 : 2col mobile / 4 col deskop -->
+                <!-- Titre centré sur l'image en position absolute -->
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/aeqh3ctd6mxuxxolbtuq.jpg" alt="Robes">
+                        <h2 class="card-title">Robes</h2>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/bqwqvgd5roolon4hmvaq.jpg" alt="Robes">
+                        <h2 class="card-title">Robes</h2>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/dt6n9ouvfkjlp7xwoype.jpg" alt="Robes">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/giblnt5ksc3hehpwzx5v.jpg" alt="Robes">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/i34hmkeywypa0rmmknpg.jpg" alt="Robes">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/kojqq86ae8kjlobpfhgo.jpg" alt="TOPS & T-SHIRTS">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/m6vosttvqxmea9nia0zx.jpg" alt="TOPS & T-SHIRTS">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="images/qh02fjvvvvehprrgn7pq.jpg" alt="TOPS & T-SHIRTS">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+                <!-- Cards 9, 10, 11 : empilées mobile / 3 côte à côte desktop -->
+                <!-- Toujours dans le même parent cards-grid -->
+                
+                <article class="card card-last">
+                    <div class="card-img-wrapper">
+                        <img src="images/sb7pyfh6soefnslpzsxy.jpg" alt="Sacs">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+                <article class="card card-last">
+                    <div class="card-img-wrapper">
+                        <img src="images/whsgjd5juevg7sv16zfc.jpg" alt="TOPS & T-SHIRTS">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+                <article class="card card-last">
+                    <div class="card-img-wrapper">
+                        <img src="images/xws21dqvi3wbrhqzvmzv.jpg" alt="TOPS & T-SHIRTS">
+                        <h2 class="card-title">TOPS & T-SHIRTS</h2>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+        
+        <!-- SECTION LOOKBOOK -->
+        <!-- 100vh, contenu centré, image en HTML, overlay sombre -->
+        <section class="lookbook">
+            <img src="images/background_dresses.avif" alt="Collection Printemps" class="lookbook-bg">
+            <div class="lookbook-overlay"></div>
+            <div class="lookbook-content">
+                <p class="lookbook-subtitle">Nouvelle collection</p>
+                <h2 class="lookbook-title">Collection Printemps</h2>
+                <!-- Bouton : hover = fond blanc transparent + s'élargit via transition -->
+                <a href="#" class="lookbook-btn">Découvrir</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- FOOTER -->
+    <!-- Baskervville, padding 2rem, grid gap 2rem -->
+    <!-- Mobile : 4 blocs empilés -->
+    <!-- Desktop : jusqu'à 4 colonnes (min 250px), max 1300px, centré -->
+    <footer class="footer">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="#">Notre histoire</a></li>
+                    <li><a href="#">Les Ateliers</a></li>
+                    <li><a href="#">Engagements</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Aide</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Livraison</a></li>
+                    <li><a href="#">Retours</a></li>
+                </ul>
+            </div>
+            
+            <!-- Réseaux sociaux : hover coloré via nth-child, PAS de classe par icône -->
+            <div class="footer-col footer-social">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">Nous contacter</a></li>
+                    <li><a href="#">Presse</a></li>
+                    <li><a href="#">Recrutement</a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </footer>
+    
+</body>
+</html>
